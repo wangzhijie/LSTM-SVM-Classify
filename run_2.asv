@@ -1,0 +1,73 @@
+%parameters setting:
+
+esmd.getSift(t, Y, optLoop, extremeNumR);
+%-------------------------------------------
+len = esmd.yImfsR.size();
+figure(2)
+for i=1:len
+	subplot(len,1,i);
+	plot(t,esmd.yImfsR.get(i-1));
+    %y=fft(esmd.yImfsR.get(i-1),length(esmd.yImfsR.get(i-1)));
+	if i==1
+		ylabel('Y');
+	elseif i==len
+		ylabel('R');
+	else
+		ylabel(strcat('Imf',num2str(i-1)));
+	end
+end
+m1=
+for i=1:1024
+  sum=0;
+  for j=0:3
+      m=esmd.yImfsR.get(j);
+      sum=sum+m(i)*m(i);
+  end
+  sum=sqrt(sum);
+  m(i)=m(i);
+end
+  fprintf('\n');
+
+
+%-------------------------------------------
+% len=esmd.interfs.size();
+% figure(3)
+% frequency distribution figure
+% for i=1:len
+% 	plot(t,esmd.interfs.get(i-1))
+% 	hold on
+% end
+% 
+% -------------------------------------------
+% figure(4)
+% frequency Amplitude figure
+% for i=1:len
+% 	subplot(2*len,1,2*i-1)
+% 	plot(t,esmd.interfs.get(i-1))
+% 	ylabel(strcat('F',num2str(i)))
+% 
+% 	subplot(2*len,1,2*i)
+% 	plot(t,esmd.upperEvelops.get(i-1))
+% 	ylabel(strcat('A',num2str(i)))
+% end
+% 
+% -------------------------------------------
+% figure(5)
+% AdaptGlobalMeanCurve on Y
+% len = esmd.yImfsR.size();
+% plot(t,Y);
+% hold on;
+% R=esmd.yImfsR.get(len-1);
+% plot(t,R);
+% 
+% -------------------------------------------
+% figure(6)
+% plot Y-R  
+% plot(t,Y-R)
+% 
+% -------------------------------------------
+% figure(7)
+% plot(t,esmd.energy)
+% 
+% clear all;
+% javarmpath(pwd);
