@@ -4,8 +4,8 @@ x1=50;
 javaaddpath(pwd);
 esmd= esmd4j.Esmd();
 % load data
-data=load('data\12k\014\B014-0.mat');
-Y=data.X185_DE_time((x1-1)*1024+1:(x1-1)*1024+1024);
+data=load('data\12k\021\OR021@6-2.mat');
+Y=data.X236_DE_time((x1-1)*1024+1:(x1-1)*1024+1024);
 delt_t = 0.05; % sampling period 
 t=esmd.init_t(length(Y),delt_t);
 %parameters setting:

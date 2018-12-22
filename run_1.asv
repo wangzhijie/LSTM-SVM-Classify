@@ -1,17 +1,17 @@
 disp('It is running. Please wait ...');
 clear all;
-x1=1;
+x1=19;
 javaaddpath(pwd);
 esmd= esmd4j.Esmd();
 % load data
-data=load('data\12k\007\B007-0.mat');
-Y=data.X118_DE_time((x1-1)*1024+1:x1-1)*1024+1024);
+data=load('data\12k\021\IR021_0.mat');
+Y=data.X209_DE_time((x1-1)*1024+1:(x1-1)*1024+1024);
 delt_t = 0.05; % sampling period 
 t=esmd.init_t(length(Y),delt_t);
 %parameters setting:
 minLoop=1;
 maxLoop=40;
-extremeNumR=6; % >=4
+extremeNumR=7; % >=4
 jianGeNum = 1; %
 rList = esmd.getVarianceRatio(t, Y, minLoop, maxLoop, extremeNumR);
 [minVar,idx]=min(rList);
@@ -22,4 +22,4 @@ optLoop=idx+minLoop-1;
 x=minLoop:maxLoop;
 %figure(1)
 %plot(x,rList)
-
+run('run_2.m');

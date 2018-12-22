@@ -34,7 +34,7 @@ for i=1:1024
   m4(i)=abs(m4(i))/sum;
 end
 data=[m1,m2,m3,m4];
-s=xlswrite('tezhengxiangliang\B014.xlsx',data,x1);
+s=xlswrite('tezhengxiangliang\OR021.xlsx',data,x1);
 
 %-------------------------------------------
 % len=esmd.interfs.size();
