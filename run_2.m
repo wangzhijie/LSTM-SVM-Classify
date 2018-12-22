@@ -6,16 +6,17 @@ len = esmd.yImfsR.size();
 figure(2)
 for i=1:len
 	subplot(len,1,i);
-	plot(t,esmd.yImfsR.get(i-1));
-    %y=fft(esmd.yImfsR.get(i-1),length(esmd.yImfsR.get(i-1)));
-	if i==1
-		ylabel('Y');
-	elseif i==len
+	plot(t/200,esmd.yImfsR.get(i-1));
+ 	%if i==1
+ 	%	ylabel('Y');
+    if i==len
 		ylabel('R');
 	else
-		ylabel(strcat('Imf',num2str(i-1)));
+		ylabel(strcat('Imf',num2str(i)));
 	end
 end
+
+%存储归一化特征向量值到excel中
 m1=esmd.yImfsR.get(0);
 m2=esmd.yImfsR.get(1);
 m3=esmd.yImfsR.get(2);
@@ -32,10 +33,8 @@ for i=1:1024
   m3(i)=abs(m3(i))/sum;
   m4(i)=abs(m4(i))/sum;
 end
-%存储归一化特征向量值到excel中
 data=[m1,m2,m3,m4];
-s=xlswrite('tezhengxiangliang\B007.xlsx',data,2);
-
+s=xlswrite('tezhengxiangliang\B014.xlsx',data,x1);
 
 %-------------------------------------------
 % len=esmd.interfs.size();
@@ -76,6 +75,6 @@ s=xlswrite('tezhengxiangliang\B007.xlsx',data,2);
 % -------------------------------------------
 % figure(7)
 % plot(t,esmd.energy)
-% 
-% clear all;
-% javarmpath(pwd);
+
+%clear all;
+%javarmpath(pwd);
